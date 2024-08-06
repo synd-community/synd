@@ -1,0 +1,50 @@
+[project]
+name = "synd"
+description = ""
+authors = [{ name = "Andy Chisholm", email = "andy.chisholm.89@gmail.com" }]
+requires-python = ">=3.11,<3.12"
+version = "0.1"
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "ipykernel",
+    "mypy",
+    "pytest",
+    "pytest-cov"
+]
+
+models = [
+    "sdv~=1.15.0",
+]   "scikit-learn~=1.3.2"
+
+[project.scripts]
+atlas = "synd.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["synd*"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+[build-system]
+requires = ["setuptools>=65.3.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+enable_error_code = "ignore-without-code"
+files = ["synd"]
+show_error_codes = true
+warn_unused_ignores = true
+
+[tool.black]
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+source = ["synd"]
+omit = ["*/__init__.py"]
