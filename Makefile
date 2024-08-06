@@ -1,5 +1,9 @@
 .PHONY: install fmt test
 
+setup:
+	python3.11 -m venv .venv &&
+	. .venv/bin/activate && pip install --upgrade pip
+
 install:
 	pip install -e .[all]
 
