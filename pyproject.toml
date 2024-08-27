@@ -1,5 +1,5 @@
 [project]
-name = "synd"
+name = "syndkit"
 description = ""
 authors = [{ name = "Andy Chisholm", email = "andy.chisholm.89@gmail.com" }]
 requires-python = ">=3.11,<3.12"
@@ -18,18 +18,19 @@ dev = [
 
 models = [
     "sdv~=1.15.0",
-    "scikit-learn~=1.3.2"
+    "scikit-learn~=1.3.2",
+    "copulas~=1.16.0",
 ]
 
 all = [
-    "synd[dev,models]"
+    "syndkit[dev,models]"
 ]
 
 [project.scripts]
-atlas = "synd.cli:main"
+syndkit = "syndkit.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["synd*"]
+include = ["syndkit*"]
 
 [tool.setuptools.package-data]
 "*" = ["py.typed"]
@@ -40,7 +41,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.mypy]
 enable_error_code = "ignore-without-code"
-files = ["synd"]
+files = ["syndkit"]
 show_error_codes = true
 warn_unused_ignores = true
 
